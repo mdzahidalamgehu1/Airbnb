@@ -94,17 +94,6 @@ cd stayNext
 ```bash
 npm install
 ```
-
-### Create a `.env` file
-
-```env
-ATLASDB_URL=your_mongodb_connection_string
-SECRET=your_session_secret
-CLOUD_NAME=your_cloudinary_cloud_name
-CLOUD_API_KEY=your_cloudinary_api_key
-CLOUD_API_SECRET=your_cloudinary_api_secret
-```
-
 ### Start the application
 
 ```bash
@@ -117,13 +106,6 @@ Visit:
 http://localhost:8080
 ```
 
----
-
-## 📸 Screenshots
-
-> Add screenshots of your Home Page, Listing Page, Login Page, and Property Details here.
-
----
 
 ## 📌 Key Highlights
 
@@ -158,7 +140,3 @@ http://localhost:8080
 - Portfolio: https://zahid-portfolio-coral.vercel.app/
 
 ---
-
-## ⭐ Support
-
-If you found this project helpful, please consider giving it a **⭐ Star** on GitHub.
