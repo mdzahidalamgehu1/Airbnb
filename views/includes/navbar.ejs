@@ -1,11 +1,13 @@
 <style>
-  .search-btn{
+  .search-btn {
     background-color: #fe424d;
     color: #fff;
     border-radius: 25px;
-    padding: 0 1rem 0 1rem;
+    padding: 0 1rem;
+    white-space: nowrap;
   }
-  .search-btn:hover{
+
+  .search-btn:hover {
     background-color: #fe424d;
     color: #fff;
   }
@@ -15,40 +17,208 @@
     margin-right: 0.5rem;
   }
 
-  .search-inp{
+  .search-inp {
     border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    font-size: 1rem
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
   }
 
+  .logo-img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Mobile Navbar */
+  @media (max-width: 767px) {
+    .navbar {
+      position: relative !important;
+      z-index: 1000;
+    }
+
+    .navbar-collapse {
+      position: relative !important;
+      z-index: 1000;
+      background-color: #fff;
+      padding: 1rem 0;
+    }
+
+    .navbar-nav {
+      width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+      padding: 0.7rem 1rem;
+    }
+
+    .navbar-nav.ms-auto {
+      margin-left: 0 !important;
+    }
+
+    .navbar form {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+
+    .search-inp {
+      width: 100%;
+    }
+
+    .search-btn {
+      padding: 0.5rem 1rem;
+    }
+
+    .navbar-collapse .navbar-nav:last-child {
+      border-top: 1px solid #ddd;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .navbar form {
+      width: auto;
+    }
+  }
+  @media (max-width: 767px) {
+  .navbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar-collapse {
+    position: static !important;
+    width: 100%;
+    height: auto !important;
+    overflow: visible !important;
+    background-color: #fff;
+  }
+
+  .navbar-collapse.show {
+    display: block !important;
+    height: auto !important;
+  }
+
+  .navbar-collapse.collapsing {
+    height: auto !important;
+    transition: none !important;
+  }
+
+  .navbar .container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+  }
+
+  /* Push categories below expanded navbar */
+  #filters {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: 1rem !important;
+  }
+}
 </style>
 
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+
   <div class="container-fluid">
+
+    <!-- Logo -->
     <a class="navbar-brand" href="/listings">
-      <!-- <i class="fa-regular fa-compass"></i> -->
-       <img src="/images/stayNextLogo.png" alt="StayNext Logo" class="logo-img">
+      <img
+        src="/images/stayNextLogo.png"
+        alt="StayNext Logo"
+        class="logo-img"
+      >
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+
+
+    <!-- Mobile Hamburger -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
+
+
+    <!-- Navbar Content -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- Explore -->
       <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/listings">
+          Explore
+        </a>
       </div>
-      <div class="navbar-nav ms-auto">
+
+
+      <!-- Search -->
+      <div class="navbar-nav mx-md-auto">
+
         <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="Search destination"/>
-          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+
+          <input
+            class="form-control me-2 search-inp"
+            type="search"
+            placeholder="Search destination"
+          >
+
+          <button
+            class="btn search-btn"
+            type="submit"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+          </button>
+
         </form>
+
       </div>
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Your StayNext</a>
+
+
+      <!-- Right Side -->
+      <div class="navbar-nav">
+
+        <a class="nav-link" href="/listings/new">
+          Your StayNext
+        </a>
+
+
         <% if (!currUser) { %>
-          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
+
+          <a class="nav-link" href="/signup">
+            <b>Sign Up</b>
+          </a>
+
+          <a class="nav-link" href="/login">
+            <b>Log in</b>
+          </a>
+
         <% } else { %>
-          <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <% } %> 
+
+          <a class="nav-link" href="/logout">
+            <b>Log out</b>
+          </a>
+
+        <% } %>
+
       </div>
+
+    </div>
+
+  </div>
+
 </nav>
